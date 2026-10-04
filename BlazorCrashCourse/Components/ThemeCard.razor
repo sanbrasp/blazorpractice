@@ -1,0 +1,13 @@
+﻿@*Style attribute is calulated on every render, so it follows isDark*@
+<div style="@ThemeStyle ">
+    <p>Mode: @(IsDark ? "Dark" : "Light")</p>
+</div>
+
+@code {
+    [Parameter] public bool IsDark { get; set; }
+    
+    // A computed property: no stored value, derives from isDark
+    private string ThemeStyle => IsDark
+        ? "background:#1e1e2e; color:#f0f0f0; padding:1rem;"
+        : "background:#ffffff; color:#222; padding:1rem; border:1px solid #ccc;";
+}
