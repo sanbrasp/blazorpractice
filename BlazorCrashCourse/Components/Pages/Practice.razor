@@ -1,0 +1,44 @@
+﻿@page "/practice"
+
+@* @page = this component is reachable at /practice *@
+@rendermode InteractiveServer
+@* Opts this page into interactivity (events + binding work). Don't forget! *@
+
+<h3>Practice</h3>
+
+@* One way output: C# value -> HTML. Use @ to drop into C# *@
+<p>Hello, @name!</p>
+
+@* Two way binding: input <-> field. By default updates when the input LOSES FOCUS. *@
+<input @bind="name" />
+
+@* Add bind event on input to update on every keystroke *@
+<input @bind="name" @bind:event="oninput" />
+
+@* Event handler: calls a C# method when clicked *@
+<button @onclick="IncrementCount">Clicked @count times</button>
+
+@* Event handler with an inline lambda and a parameter *@
+<button @onclick="() => count = 0">Reset</button>
+
+@* Conditional rendering *@
+@if (count >= 5)
+{
+    <p>You clicked a lot!</p>
+}
+else
+{
+    <p>Keep clicking!</p>
+}
+
+@code {
+    // Everything in @code is plain C#: fields, properties, methods.
+    private string name = "Sandra";
+    private int count = 0;
+
+    private void IncrementCount()
+    {
+        count++;
+        // Blazor automatically re-renders after an event handler finishes.
+    }
+}
