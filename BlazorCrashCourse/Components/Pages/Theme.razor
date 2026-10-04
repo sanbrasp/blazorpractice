@@ -1,0 +1,16 @@
+﻿@page "/theme"
+@rendermode InteractiveServer
+
+<h3>Theme</h3>
+
+<ThemeCard IsDark="isDark" />
+<ThemeCard IsDark="true" />
+<ThemeCard IsDark="false" />
+
+<button @onclick="() => isDark = !isDark">
+    Toggle first card
+</button>
+
+@code {
+    private bool isDark = false;
+}
