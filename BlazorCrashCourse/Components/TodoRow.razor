@@ -1,0 +1,24 @@
+﻿@using BlazorCrashCourse.Models
+
+<li>
+    <input type="checkbox"
+           checked="@Item.IsDone"
+           @onchange="Toggle" />
+    <span style="@(Item.IsDone ? "text-decoration: line-through" : "")">@Item.Title</span>
+    <button @onclick="() => OnDelete.InvokeAsync(Item.Id)">Delete</button>
+</li>
+
+@code {
+    // Data flows down, the parent passes the item in
+    [Parameter, EditorRequired] public TodoItem Item { get; set; } = default!;
+    
+    // Events flow UP. The parent supplies handlers, child calls them
+    [Parameter] public EventCallback<int> OnDelete { get; set; }
+    [Parameter] public EventCallback OnChanged { get; set; }
+
+    private async Task Toggle(ChangeEventArgs e)
+    {
+        Item.SetDone((bool)e.Value!);
+        await OnChanged.InvokeAsync(); // tell the parent so its counter update
+    }
+}
