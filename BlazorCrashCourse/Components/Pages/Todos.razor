@@ -1,0 +1,52 @@
+﻿@page "/Todos"
+@rendermode InteractiveServer
+@using BlazorCrashCourse.Models
+@using BlazorCrashCourse.Services
+@inject TodoServices TodoService
+
+<h3>My Todos</h3>
+
+<input @bind="newTitle"
+       @bind:event="oninput"
+       @onkeydown="HandleKeyDown"
+       placeholder="What needs doing?" />
+<button @onclick="AddTodo" disabled="@string.IsNullOrWhiteSpace(newTitle)">Add</button>
+
+@if (TodoService.GetAll().Count == 0)
+{
+       <p><em>Nothing yet. Add something!</em></p>
+}
+else
+{
+       <ul>
+              @foreach (var item in TodoService.GetAll())
+              {
+                     <li>
+                            <input type="checkbox"
+                                   checked="@item.IsDone"
+                                   @onchange="e => item.SetDone((bool)e.Value!)" />
+                            <span style="@(item.IsDone ? "text-decoration: line-through" : "")">@item.Title</span>
+                            <button @onclick="() => TodoService.Remove(item.Id)">Delete</button>
+                     </li>
+              }
+       </ul>
+       
+       <p>@TodoService.GetAll().Count(i => i.IsDone) of @TodoService.GetAll().Count done</p>
+}
+
+@code
+{
+       private string newTitle = "";
+
+       private void AddTodo()
+       {
+              TodoService.Add(newTitle);
+              newTitle = "";
+       }
+
+       private void HandleKeyDown(KeyboardEventArgs e)
+       {
+              if (e.Key == "Enter")
+                     AddTodo();
+       }
+}
