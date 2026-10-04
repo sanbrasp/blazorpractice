@@ -22,11 +22,9 @@ else
               @foreach (var item in TodoService.GetAll())
               {
                      <li>
-                            <input type="checkbox"
-                                   checked="@item.IsDone"
-                                   @onchange="e => item.SetDone((bool)e.Value!)" />
-                            <span style="@(item.IsDone ? "text-decoration: line-through" : "")">@item.Title</span>
-                            <button @onclick="() => TodoService.Remove(item.Id)">Delete</button>
+                            <TodoRow Item="item"
+                                     OnDelete="id => TodoService.Remove(id)"
+                                     OnChanged="StateHasChanged" />
                      </li>
               }
        </ul>
