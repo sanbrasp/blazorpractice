@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddScoped<BlazorCrashCourse.Services.TodoServices>();
 
 var app = builder.Build();
 
@@ -21,6 +22,7 @@ app.UseHttpsRedirection();
 
 app.UseAntiforgery();
 
+// Middle-ware, we will learn about this later
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
