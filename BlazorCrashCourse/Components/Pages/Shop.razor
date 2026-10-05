@@ -1,0 +1,25 @@
+﻿@page "/shop"
+@rendermode InteractiveServer
+@using BlazorCrashCourse.Services
+@inject ProductService Products
+
+<h3>Shop</h3>
+<p>Cart: @cartCount | Last added: @lastAdded</p>
+
+<div class="grid">
+    @foreach (var p in Products.GetAll())
+    {
+        <ProductCard Id="@p.Id" Name="@p.Name" Price="@p.Price" Emoji="@p.Emoji" OnAdd="HandleAdd" />
+    }
+</div>
+
+@code {
+    private string lastAdded = "Nothing yet";
+    private int cartCount;
+
+    private void HandleAdd(string productName)
+    {
+        cartCount ++;
+        lastAdded = productName;
+    }
+}
