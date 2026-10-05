@@ -1,0 +1,24 @@
+﻿@page "/product/{Id:int}"
+@using BlazorCrashCourse.Models
+@using BlazorCrashCourse.Services
+@inject ProductService ProductService
+
+@if (product is null)
+{
+    <p>Product not found.</p>   @* the null check from the teacher's table *@
+}
+else
+{
+    <h3>@product.Emoji @product.Name</h3>
+    <p>@product.Description</p>
+    <p>@product.Price kr</p>
+}
+<a href="/shop">Back to shop</a>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Product? product;
+
+    // Runs whenever the route parameter changes
+    protected override void OnParametersSet() => product = ProductService.GetById(Id);
+}
