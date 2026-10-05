@@ -2,10 +2,19 @@
     <div class="emoji">@Emoji</div>
     <h3>@Name</h3>
     <p class="price">@Price kr</p>
+    <p><a href="/product/@Id">Details</a></p>
+    <button @onclick="OnAddClicked">Add to cart</button>
 </div>
 
 @code {
+    [Parameter] public int Id { get; set; }
     [Parameter] public string Name { get; set; } = "";
-    [Parameter] public string Price { get; set; } = "";
+    [Parameter] public decimal Price { get; set; }
     [Parameter] public string Emoji { get; set; } = "📦";
+    [Parameter] public EventCallback<string> OnAdd { get; set; }
+
+    private async Task OnAddClicked()
+    {
+        await OnAdd.InvokeAsync(Name);
+    }
 }
