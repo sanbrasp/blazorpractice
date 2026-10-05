@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<BlazorCrashCourse.Services.TodoServices>();
+builder.Services.AddSingleton<BlazorCrashCourse.Services.ProductService>();
 
 var app = builder.Build();
 
