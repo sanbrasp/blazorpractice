@@ -1,0 +1,8 @@
+﻿.product-card {
+    width: 250px;            /* a fixed width is needed for auto margins to centre it */
+    margin: 1rem auto;       /* auto left/right centres the card on the page */
+    padding: 1rem;
+    text-align: center;      /* centres the text inside the card */
+    border: 1px solid #ccc;
+    border-radius: 12px;     /* rounded edges */
+}

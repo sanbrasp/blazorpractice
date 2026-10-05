@@ -1,0 +1,11 @@
+﻿<div class="product-card">
+    <div class="emoji">@Emoji</div>
+    <h3>@Name</h3>
+    <p class="price">@Price kr</p>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; } = "";
+    [Parameter] public string Price { get; set; } = "";
+    [Parameter] public string Emoji { get; set; } = "📦";
+}
