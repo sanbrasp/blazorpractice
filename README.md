@@ -20,6 +20,7 @@ and debugging assistance.
 - Dependency injection (`@inject`, `AddScoped`)
 - Separation of concerns: `Models/`, `Services/` and UI
 - Encapsulation (`init` and `private set`)
+- Scoped CSS (`Component.razor.css`) and global styles (`wwwroot/app.css`)
 - `@ notation` C# syntax practice
 
 ---
@@ -27,6 +28,9 @@ and debugging assistance.
 ## Pages
 - `/practice`: bind, events, conditionals
 - `/todos`: todo list using `TodoServices` and the `TodoRow` component
+- `/theme`: light/dark toggle using the `ThemeCard` component and a `[Parameter]`
+- `/shop`: product list using `ProductService` and the `ProductCard` component with an `OnAdd` callback
+- `/product/{Id:int}`: product details with a "not found" state
 
 ---
 
@@ -37,6 +41,7 @@ Requires .NET 10 SDK (developed in JetBrains Rider).
 dotnet run
 ```
 
+Run it from the project folder (containing `.csproj`).  
 Data is held in memory only and resets on restart or refresh.
 
 
