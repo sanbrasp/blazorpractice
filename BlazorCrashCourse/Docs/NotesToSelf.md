@@ -184,7 +184,7 @@ One component can contain and use another. This is done with HTML-similar syntax
 
 <Heading />
 ```
-`>Heading />` is the use of the `Heading.razor` component. Note that the component name 
+`<Heading />` is the use of the `Heading.razor` component. Note that the component name 
 starts with an upper case letter. This is a requirement in Blazor, and separates components from 
 regular HTML elements (lower case)
 
