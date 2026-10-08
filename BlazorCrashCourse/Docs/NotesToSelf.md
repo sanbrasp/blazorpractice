@@ -34,11 +34,11 @@ shared, but only `Blazor` uses `.razor` components.
 
 ## Separating Blazor from .razor
 
-| Name   | What it is                                                                                                                             |
-|--------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Blazor | The framework. Runs components, handles events, re-renders UI, manages connection between server and browser                           |
-| Razor  | The Markup syntax. Lets you mix HTML and C# using `@`. It is older than Blazor and also used in ASP.NET MVC and Razor Pages (`.cshtml` |
-| .razor | The file extension for Blazor components written in Razor syntax. Compiled into a C# class.                                            |
+| Name   | What it is                                                                                                                              |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Blazor | The framework. Runs components, handles events, re-renders UI, manages connection between server and browser                            |
+| Razor  | The Markup syntax. Lets you mix HTML and C# using `@`. It is older than Blazor and also used in ASP.NET MVC and Razor Pages (`.cshtml`) |
+| .razor | The file extension for Blazor components written in Razor syntax. Compiled into a C# class.                                             |
 
 ---
 
