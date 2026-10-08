@@ -5,13 +5,11 @@ Various notes regarding Blazor during the practice project.
 
 ## Contents
 - [Concept](#concept)
-- [Terminology](#terminology)
-  - [Blazor and .razor](#separating-blazor-from-razor)
-  - [Parent VS Child](#parent-vs-child)
-  - [Directives and Directive Attributes](#directives-and-directive-attributes)
-  - [Component Structure](#component-structure)
-  - [Nested Components and Naming Conventions](#nested-components-and-naming-conventions)
-  - 
+- [Blazor and .razor](#separating-blazor-from-razor)
+- [Parent VS Child](#parent-vs-child)
+- [Directives and Directive Attributes](#directives-and-directive-attributes)
+- [Component Structure](#component-structure)
+- [Nested Components and Naming Conventions](#nested-components-and-naming-conventions)
 
 ---
 
