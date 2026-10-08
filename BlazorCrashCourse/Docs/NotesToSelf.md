@@ -32,9 +32,7 @@ shared, but only `Blazor` uses `.razor` components.
 
 ---
 
-## Terminology
-
-### Separating Blazor from .razor
+## Separating Blazor from .razor
 
 | Name   | What it is                                                                                                                             |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +42,7 @@ shared, but only `Blazor` uses `.razor` components.
 
 ---
 
-### Parent VS Child
+## Parent VS Child
 A `Parent` is a component that uses another component. The `Child` is the one being used.  
 
 **Example:**  
