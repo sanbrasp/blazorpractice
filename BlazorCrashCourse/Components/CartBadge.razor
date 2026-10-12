@@ -5,9 +5,9 @@
 <span class="cart-badge">🛒 @Cart.Count</span>
  
 @code {
-    protected override void OnInitialized() => Cart.OnChange += OnCartChanged;
+    protected override void OnInitialized() => Cart.OnChange += OnCartChanged; // subscribe
  
     private void OnCartChanged() => InvokeAsync(StateHasChanged);  
  
-    public void Dispose() => Cart.OnChange -= OnCartChanged;
+    public void Dispose() => Cart.OnChange -= OnCartChanged; // clean up
 }
