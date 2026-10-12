@@ -1,4 +1,5 @@
 using BlazorCrashCourse.Components;
+using BlazorCrashCourse.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<BlazorCrashCourse.Services.TodoServices>();
 builder.Services.AddSingleton<BlazorCrashCourse.Services.ProductService>();
+builder.Services.AddScoped<CartState>();
 
 var app = builder.Build();
 
