@@ -1,0 +1,13 @@
+﻿@inject CartState Cart
+@using BlazorCrashCourse.Services
+@implements IDisposable
+ 
+<span class="cart-badge">🛒 @Cart.Count</span>
+ 
+@code {
+    protected override void OnInitialized() => Cart.OnChange += OnCartChanged;
+ 
+    private void OnCartChanged() => InvokeAsync(StateHasChanged);  
+ 
+    public void Dispose() => Cart.OnChange -= OnCartChanged;
+}
