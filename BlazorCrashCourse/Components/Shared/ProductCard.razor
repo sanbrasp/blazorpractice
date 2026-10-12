@@ -1,9 +1,13 @@
-﻿<div class="product-card">
+﻿@using BlazorCrashCourse.Services
+@inject CartState Cart
+
+<div class="product-card">
     <div class="emoji">@Emoji</div>
     <h3>@Name</h3>
     <p class="price">@Price kr</p>
     <p><a href="/product/@Id">Details</a></p>
     <button @onclick="OnAddClicked">Add to cart</button>
+    <button @onclick="Cart.Add">Add to shared cart</button>
     <button @onclick="() => { if (qty > 0) qty--; }">-</button>
     <span>@qty</span>
     <button @onclick="() => qty++">+</button>
