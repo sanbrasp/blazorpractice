@@ -4,6 +4,9 @@
     <p class="price">@Price kr</p>
     <p><a href="/product/@Id">Details</a></p>
     <button @onclick="OnAddClicked">Add to cart</button>
+    <button @onclick="() => { if (qty > 0) qty--; }">-</button>
+    <span>@qty</span>
+    <button @onclick="() => qty++">+</button>
 </div>
 
 @code {
@@ -12,6 +15,8 @@
     [Parameter] public decimal Price { get; set; }
     [Parameter] public string Emoji { get; set; } = "📦";
     [Parameter] public EventCallback<string> OnAdd { get; set; }
+
+    private int qty = 0;
 
     private async Task OnAddClicked()
     {
