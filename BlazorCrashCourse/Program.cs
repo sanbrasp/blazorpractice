@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<BlazorCrashCourse.Services.TodoServices>();
 builder.Services.AddSingleton<BlazorCrashCourse.Services.ProductService>();
 builder.Services.AddScoped<CartState>();
+builder.Services.AddHttpClient<ProductService>(c => c.BaseAddress = new Uri("https://fakestoreapi.com"));
 
 var app = builder.Build();
 
